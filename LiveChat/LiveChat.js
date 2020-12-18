@@ -2,8 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default class LiveChat extends React.Component {
-  componentWillMount() {
-    this.loadLiveChatApi.bind(this)();
+  constructor(props) {
+    super(props);
+
+    this.loadLiveChatApi = this.loadLiveChatApi.bind(this);
+  }
+
+  componentDidMount() {
+    this.loadLiveChatApi();
   }
 
   chatLoaded() {
